@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="content-wrapper">
+    <div class="main-content">
+      <div class="col-md-12">
+        <div class="row">
+
+          <div class="col-md-12 col-sm-12">
+            <div class="form">
+              <div class="card shadow">
+                <div class="card-body text-center">
+                  <h3>
+                    We'll be in touch to get your trial set up.
+                  </h3>
+                  <p class="text-center">Fill the form</p>
+                    <form [formGroup]="userForm" (ngSubmit)="createUser(userForm.value)">
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <input type="text" placeholder="First name* "
+                            class=" form-control" formControlName="firstname" id="firstname" name="firstname"
+                            [ngClass]="{ 'is-invalid': submitted &amp;&amp; userForm.controls.firstname.errors }" />
+
+                          <div *ngIf="submitted &amp;&amp; userForm.controls.firstname.errors" class="text-danger error">
+                            <div *ngIf="userForm.controls.firstname.errors.required">First Name is required</div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" placeholder="Last name* " class=" form-control" formControlName="lastname" id="lastname"
+                            name="lastname" [ngClass]="{ 'is-invalid': submitted &amp;&amp; userForm.controls.lastname.errors }" />
+
+                          <div *ngIf="submitted &amp;&amp; userForm.controls.lastname.errors" class="text-danger error">
+                            <div *ngIf="userForm.controls.lastname.errors.required">Last Name is required</div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="mb-4">
+                        <input type="email" placeholder="Email*" class=" form-control" formControlName="email" id="email"
+                          name="email" [ngClass]="{ 'is-invalid': submitted &amp;&amp; userForm.controls.email.errors }" />
+
+                        <div *ngIf="submitted &amp;&amp; userForm.controls.email.errors" class="text-danger error">
+                          <div *ngIf="userForm.controls.email.errors.required">Email is required</div>
+                        </div>
+
+                      </div>
+
+                      <div class="mb-4">
+                        <input type="text" placeholder="Monthlty Advertizing Budget* " class=" form-control" formControlName="monthlyBudget" id="monthlyBudget"
+                          name="monthlyBudget" [ngClass]="{ 'is-invalid': submitted &amp;&amp; userForm.controls.monthlyBudget.errors }" />
+
+                        <div *ngIf="submitted &amp;&amp; userForm.controls.monthlyBudget.errors" class="text-danger error">
+                          <div *ngIf="userForm.controls.monthlyBudget.errors.required">Monthy Budget is required</div>
+                          <div *ngIf="userForm.controls.monthlyBudget.errors.pattern">Monthy Budget can only contain Numbers</div>
+                        </div>
+
+                      </div>
+                      <div class="mb-4">
+                        <input type="text" placeholder="Phone number* " class=" form-control" formControlName="phoneNumber"
+                          id="phoneNumber" name="phoneNumber"
+                          [ngClass]="{ 'is-invalid': submitted &amp;&amp; userForm.controls.phoneNumber.errors }" />
+
+                        <div *ngIf="submitted &amp;&amp; userForm.controls.phoneNumber.errors" class="text-danger error">
+                          <div *ngIf="userForm.controls.phoneNumber.errors.required">Phone number is required</div>
+                        </div>
+
+                      </div>
+
+                      <button class="btn mb-4 btn-block btn-success" type="submit">Submit</button>
+                     </form>
+                  <a [routerLink]="['/']" class="btn btn-danger btn-block">back </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
